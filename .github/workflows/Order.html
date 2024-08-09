@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SahanaCreamHouse HomePage</title>
+    <link rel="stylesheet" href="StyleCss.css">
+    <script src="ScriptJS.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <nav>
+            <h2 class="logo">SahanaCreamHouse</h2>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Order.html">Order</a></li>
+                <li><a href="Event.html">Events</a></li>
+                <li><a href="About-Us.html">About us</a></li>
+            </ul>
+            <div>
+                <a href="Event.html" class="book-btn">BOOK NOW</a>
+            </div>
+        </nav>
+    </div>
+    <br><br>
+    <div class="products-container">
+        <div class="product">
+            <h2 class="product-title">Sherbath</h2>
+            <img id="mainImage1" class="main-image" src="Pictures/sherbath.jpg" alt="Produit 1 Principal">
+            <p id="price-1" class="product-price">Price: $30.00 (4L)</p>
+            <div class="product-actions">
+                <input type="number" id="quantity1" value="4" min="4" step="1" onchange="validateQuantity(this, 4, 30, 1, true)">
+                <button onclick="addToCart('Sherbath', 7.5, 'quantity1', true)">Add to cart</button>
+            </div>
+            <div id="error-quantity-1" class="error-message"></div>
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="Pictures/sherbath.jpg" alt="Produit 1 Image 1" onclick="changeMainImage('Pictures/sherbath.jpg', 'mainImage1')">
+                <img class="thumbnail" src="Pictures/Sherbath2.webp" alt="Produit 1 Image 2" onclick="changeMainImage('Pictures/Sherbath2.webp', 'mainImage1')">
+                <img class="thumbnail" src="Pictures/Sherbath3.webp" alt="Produit 1 Image 3" onclick="changeMainImage('Pictures/Sherbath3.webp', 'mainImage1')">
+            </div>
+        </div>
+        <div class="product">
+            <h2 class="product-title">Beeda</h2>
+            <img id="mainImage2" class="main-image" src="https://tinyurl.com/yc8578bp" alt="Produit 2 Principal">
+            <p id="price-2" class="product-price">Price: $40.00 (1Kg)</p>
+            <div class="product-actions">
+                <input type="number" id="quantity2" value="1" min="1" step="0.5" onchange="validateQuantity(this, 1, 40, 2, false)">
+                <button onclick="addToCart('Beeda', 40, 'quantity2', false)">Add to cart</button>
+            </div>
+            <div id="error-quantity-2" class="error-message"></div>
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="https://tinyurl.com/yc8578bp" alt="Produit 2 Image 1" onclick="changeMainImage('https://tinyurl.com/yc8578bp', 'mainImage2')">
+                <img class="thumbnail" src="https://tinyurl.com/yc8578bp" alt="Produit 2 Image 2" onclick="changeMainImage('https://tinyurl.com/yc8578bp', 'mainImage2')">
+                <img class="thumbnail" src="https://tinyurl.com/yc8578bp" alt="Produit 2 Image 3" onclick="changeMainImage('https://tinyurl.com/yc8578bp', 'mainImage2')">
+            </div>
+        </div>
+    </div>
+    <div class="cart" id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p class="cart-total" id="cart-total">Total: $0.00</p>
+    </div>
+</div>
+<div class="container">
+
+        <button class="button" onclick="showConfirmationForm()">Confirm Order</button>
+
+<div id="confirmation-form" style="display:none;">
+    <h2>Confirm Your Order</h2>
+    <form id="orderForm" method="POST" action="https://formspree.io/f/mpwarzqa">
+        <input type="hidden" name="cartDetails" id="cartDetails"><br>
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <input type="tel" name="phone" placeholder="Your Phone" required><br>
+        <button type="submit" class="button">Submit Order</button>
+    </form>
+</div>
+
+<!-- Confirmation Message -->
+<div id="confirmation-message" style="display:none;">
+    <h2>Thank you for your order !</h2>
+    <h4 class="contact-information">We will contact you shortly to finalize your order. <br> If you have any questions, feel free to reach out to us: <br> <a href="mailto:SahanaCreamHouse@gmail.com">SahanaCreamHouse@gmail.com</a>  <br> 📞 905 493 7651 | 📱 647 994 8649.</h4>
+</div>
+<br>
+    <footer id="contact">
+        <h4>📧 SahanaCreamHouse@gmail.com  | 📞 905 493 7651   | 📱 647 994 8649</h4>
+    </footer>
+</body>
+    <script>
+        const cart = [];
+
+        function changeMainImage(src, mainImageId) {
+            document.getElementById(mainImageId).src = src;
+        }
+
+        function validateQuantity(input, min, price, productId, isSherbath) {
+            const quantity = parseFloat(input.value);
+            const errorMessage = document.getElementById('error-quantity-' + productId);
+            
+            if (quantity >= min) {
+                errorMessage.textContent = '';
+            } else {
+                errorMessage.textContent = 'The quantity must be at least ' + min + (isSherbath ? 'L for Sherbath' : 'kg for Beeda') + '.';
+            }
+
+            const pricePerUnit = isSherbath ? 7.5 : price;
+            document.getElementById('price-' + productId).textContent = 'Price: $' + (pricePerUnit * quantity).toFixed(2) + ' (' + quantity + (isSherbath ? 'L' : 'kg') + ')';
+        }
+
+        function addToCart(product, pricePerUnit, quantityId, isSherbath) {
+            const quantity = parseFloat(document.getElementById(quantityId).value);
+            const cartItem = cart.find(item => item.product === product);
+            
+            if (cartItem) {
+                cartItem.quantity += quantity;
+                if (cartItem.quantity < (isSherbath ? 4 : 1)) {
+                    cartItem.quantity = isSherbath ? 4 : 1;
+                }
+                if (cartItem.quantity <= 0) {
+                    cart.splice(cart.indexOf(cartItem), 1);
+                }
+            } else {
+                if (quantity > (isSherbath ? 4 : 1)) {
+                    cart.push({ product, quantity, pricePerUnit });
+                }
+            }
+
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.quantity * item.pricePerUnit;
+
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-actions">
+                        <button onclick="updateCartItem('${item.product}', ${item.pricePerUnit}, ${item.product === 'Sherbath' ? 1 : 0.5}, -1)">-</button>
+                        <p>${item.product} - ${item.quantity.toFixed(1)} ${(item.product === 'Sherbath') ? 'L' : 'kg'}</p>
+                        <button onclick="updateCartItem('${item.product}', ${item.pricePerUnit}, ${item.product === 'Sherbath' ? 1 : 0.5}, 1)">+</button>
+                        <button onclick="removeFromCart('${item.product}')">Remove</button>
+                    </div>
+                    <p>$${(item.pricePerUnit * item.quantity).toFixed(2)}</p>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            document.getElementById('cart-total').textContent = 'Total: $' + total.toFixed(2);
+        }
+
+        function updateCartItem(product, pricePerUnit, step, delta) {
+            const cartItem = cart.find(item => item.product === product);
+            if (cartItem) {
+                cartItem.quantity += delta * step;
+                if (product === 'Sherbath' && cartItem.quantity < 4) {
+                    cartItem.quantity = 4;
+                }
+                if (product === 'Beeda' && cartItem.quantity < 1) {
+                    cartItem.quantity = 1;
+                }
+                if (cartItem.quantity <= 0) {
+                    cart.splice(cart.indexOf(cartItem), 1);
+                }
+                updateCart();
+            }
+        }
+
+        function removeFromCart(product) {
+            const cartItemIndex = cart.findIndex(item => item.product === product);
+            if (cartItemIndex > -1) {
+                cart.splice(cartItemIndex, 1);
+                updateCart();
+            }
+        }
+
+        function showConfirmationForm() {
+            const cartDetails = cart.map(item => `${item.product}: ${item.quantity.toFixed(1)} ${(item.product === 'Sherbath') ? 'L' : 'kg'}`).join('\n');
+            document.getElementById('cartDetails').value = cartDetails;
+            document.getElementById('confirmation-form').style.display = 'block';
+            document.getElementById('confirmation-message').style.display = 'none';
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('confirmation-form').style.display = 'none';
+            document.getElementById('confirmation-message').style.display = 'block';
+            // Vous pouvez ajouter une logique pour envoyer les données du formulaire ici, si nécessaire.
+        });
+
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Envoi des données via AJAX à Formspree
+            const formData = new FormData(this);
+            fetch('https://formspree.io/f/mpwarzqa', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('confirmation-form').style.display = 'none';
+                    document.getElementById('confirmation-message').style.display = 'block';
+                } else {
+                    // Gérer les erreurs ici
+                    console.error('Form submission error:', response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error('Network error:', error);
+            });
+        });
+    </script>
+</html>
