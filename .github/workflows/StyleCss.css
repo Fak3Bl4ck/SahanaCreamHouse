@@ -1,0 +1,615 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden; /* Désactive le défilement horizontal */
+    overflow-y: auto; /* Permet le défilement vertical */
+}
+
+li {
+    text-align: inherit;
+}
+
+nav {
+    background-color: #EE4FC5;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Fixe la barre de navigation en haut */
+    top: 0; /* Positionne la barre de navigation en haut de la page */
+    width: 100%; /* Assure que la barre de navigation prend toute la largeur */
+    z-index: 1000; /* Assure que la barre de navigation est au-dessus du reste du contenu */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #FEC0FF, #FEC0FF);
+    background-attachment: fixed; 
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px; /* Ajoute un espace en haut pour compenser la hauteur de la barre de navigation */
+}
+
+/* Styles pour la barre de navigation */
+
+.logo {
+    font-size: large;
+    margin-left: 15px;
+    color: #fff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FCDEF0; /* Couleur du texte au survol */
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #FCDEF0; 
+    width: 0;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px; 
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.book-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #EE4FC5;
+    background-image: linear-gradient(45deg, #ffffff, #ffffff);
+    font-size: 16px;
+    border-radius: 30px;
+    margin-right: 15px;
+    transition: background-color 0.3s;
+    
+}
+
+.book-btn:hover{
+    background-image: linear-gradient(45deg, #ffa1e9, #ffa1e9);
+    color: #fff;
+    
+}
+
+/* Styles pour la video*/
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 43.33%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(247, 0, 255, 0) 90%, rgba(248, 152, 245, 0.633) 100%);
+    pointer-events: none; 
+}
+
+/* Styles pour le bas de page */
+
+footer {
+    background-color: #EE4FC5;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* Styles de texte*/
+
+.Impact-text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 5px;
+}
+
+.Lexend-text {
+    font-family: 'Lexend', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
+}
+
+.Lobster-text{
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 5px;
+}
+
+/* Styles pour les trois images */
+
+.image-list {
+    display: flex; 
+    list-style: none;
+    justify-content: center;   
+    flex-wrap: wrap; 
+}
+
+.image-list li {
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.image-list img {
+    width: 400px; 
+    height: 450px; 
+    display: block;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.image-list h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    margin-top: 10px; /* Espace entre l'image et le titre */
+    margin-bottom: 0; /* Évite l'espace supplémentaire sous le titre */
+}
+
+/* Styles pour lee boutton connect with us */
+.connect-btn {
+    display: inline-block;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #EE4FC5; 
+    font-size: 16px;
+    border-radius: 30px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.connect-btn:hover {
+    background-color: #FCDEF0; /* Couleur au survol */
+    color: #EE4FC5; /* Couleur du texte au survol */
+}
+
+/* Styles pour lee boutton connect with us */
+
+.ordernow-btn {
+    display: inline-block;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #EE4FC5; 
+    font-size: 16px;
+    border-radius: 30px;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.ordernow-btn:hover {
+    background-color: #FCDEF0; /* Couleur au survol */
+    color: #EE4FC5; /* Couleur du texte au survol */
+}
+
+/* Styles pour le diaporama */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 60%; /* Hauteur du diaporama */
+    object-fit: cover;
+    margin-bottom: 80px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-name {
+    position: relative;
+    bottom: 3px; 
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000000; 
+    font-family: 'Lexend', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    padding: 10px; 
+}
+
+/* Styles pour la FAQ */
+
+/* Styles pour la Contact us*/
+
+.button {
+    display: inline-block;
+    justify-content: center;
+    background-color: #EE4FC5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.button:hover {
+    background-color: #FCDEF0; /* Couleur au survol */
+    color: #EE4FC5; /* Couleur du texte au survol */
+}
+
+.form-container{
+    text-align: center;
+}
+.form-container h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 36px;
+}   
+.form-container input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+}
+
+.form-container textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+}
+.contact-information{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif
+}
+
+.confirmation-message{
+    display: none;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* Styles pour la page order*/
+
+.container {
+    text-align: center;
+}
+
+.products-container {
+    display: flex; 
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping to the next line if there's not enough space */;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    flex: 0 0 calc(45% - 10px); /* Ajustez la largeur des produits avec l'espace entre eux */
+}
+.main-image {
+    width: 400px; 
+    height: 450px; 
+    display: block;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.thumbnail {
+    max-width: 60px;
+    max-height: 60px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+.product-info {
+    font-family: 'Lexend', sans-serif;
+    max-width: 300px;
+    text-align: center;
+}
+.product-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    color: #000000;
+    margin-top: 20px;
+}
+.product-description {
+    margin: 10px 0;
+    font-size: 18px;
+}
+.product-price {
+    font-size: 20px;
+    color: #000;
+    margin: 10px 0;
+    font-family: 'Roboto', sans-serif;
+}
+.product-actions {
+    margin-top: 20px;
+}
+.product-actions input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    background-color: #fff;
+    color: #000;
+}
+.product-actions button {
+    background-color: #EE4FC5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.product-actions button:hover {
+    background-color: #FCDEF0; 
+    color: #EE4FC5;
+}
+
+/* Styles pour cart and confirm*/
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+.contact-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.cart {
+    margin-top: 40px;
+    text-align: center;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.cart-item p {
+    margin: 0;
+}
+.cart-item button {
+    background-color: #EE4FC5;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.cart-item button:hover {
+    background-color: #FCDEF0; 
+    color: #EE4FC5;
+}
+.cart-total {
+    font-size: 20px;
+    margin-top: 20px;
+}
+.cart-actions {
+    display: flex;
+    align-items: center;
+}
+.cart-actions button {
+    margin: 0 5px;
+}
+
+#confirmation-form input {
+    margin: 6px 0;
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+#confirmation-message {
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+.contact-info {
+    font-size: 16px;
+}
+.contact-information {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+   
+    
+/* Styles pour FORM*/
+
+}
+#confirmation-form {
+    display: none;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.form-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.required-note {
+    color: red;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 10px;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.form-group .required {
+    color: red;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-group input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+.form-group .radio-group {
+    display: inline-flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+.form-group textarea {
+    resize: vertical;
+}
+.submit-button {
+    background-color: #EE4FC5;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+.container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background-color: #EE4FC5;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+.submit-button:hover {
+    background-color: #FCDEF0;
+    color: #EE4FC5;
+}
+
+/* Style spécifique pour les fieldsets des questions Yes/No */
+.no-border-fieldset {
+    border: none;
+    padding: 0;
+}
