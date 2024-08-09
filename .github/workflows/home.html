@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SahanaCreamHouse HomePage</title>
+    <link rel="stylesheet" href="StyleCss.css">
+    <script src="ScriptJS.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <nav>
+            <h2 class="logo">SahanaCreamHouse</h2>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Order.html">Order</a></li>
+                <li><a href="Event.html">Events</a></li>
+                <li><a href="About-Us.html">About us</a></li>
+            </ul>
+            <div>
+                <a href="Event.html" class="book-btn">BOOK NOW</a>
+            </div>
+        </nav>
+    </div>
+    <div class="video-container">
+        <video loop autoplay muted>
+            <source src="Pictures/HomePageVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <h1 class="Impact-text">How are we going to make your events better?</h1><br>
+    <p class="Lexend-text">For years, Sahana Cream House has delighted customers with inventive offerings<br> like beeda, sarbeth and ice cream specials. Join us in celebrating a <br>love of food and making your events unforgettable. </p>
+    <div class="button-container">
+        <a href="#contact" class="connect-btn">Connect with Us</a>
+    </div>
+    <div>
+        <ul class="image-list">
+            <li>
+                <img src="Pictures/Beeda.JPG" alt="Beeda">
+                <h2>BEEDA</h2>
+            </li>
+            <li>
+                <img src="Pictures/IceCreamSpecial.JPG" alt="IceCreamSpecial">
+                <h2>SPECIAL ICE CREAM</h2>
+            </li>
+            <li>
+                <img src="Pictures/sherbath.jpg" alt="sherbath">
+                <h2>SHERBATH</h2>
+            </li>
+        </ul>
+    </div>
+    <div class="button-container">
+        <a href="Order.html" class="ordernow-btn">Order Now</a>
+    </div>
+    <h1 class="Impact-text">OUR PAST EVENTS</h1>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <div class="event-name">Event Name 1</div>
+                <img src="Pictures/Events (1).jpg" alt="Event1">
+            </div>
+            <div class="slide">
+                <div class="event-name">Event Name 2</div>
+                <img src="Pictures/Events (2).jpg" alt="Event2">
+            </div>
+            <div class="slide">
+                <div class="event-name">Event Name 3</div>
+                <img src="Pictures/Events(3).jpg" alt="Event3">
+                
+            </div>
+        </div>
+    </div>     
+    <div class="button-container">
+        <a href="Event.html" class="ordernow-btn">Book Now</a>
+    </div>
+    <div class="form-container">
+        <h1>Contact Us</h1>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Name" required><br>
+            <input type="tel" id="phone" name="phone" placeholder="Phone" required><br>
+            <input type="email" id="email" name="email" placeholder="Email" required><br>
+            <textarea id="message" name="message" placeholder="Message" rows="4"></textarea><br>
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+    <div id="confirmation-message" style="display:none; text-align: center; padding: 20px; margin-bottom: 40px;">
+        <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 24; margin-bottom: 10px;">Thank you for your message!</h2>
+        <h4 class="contact-information" style="font-family: 'Lexend', sans-serif;">
+            We will contact you shortly. <br> If you have any questions, feel free to reach out to us: <br>
+            <a href="mailto:SahanaCreamHouse@gmail.com">SahanaCreamHouse@gmail.com</a>
+            | 📞 905 493 7651 | 📱 647 994 8649.
+        </h4>
+    </div>
+    <div id="form-message" style="text-align: center; padding: 20px;"></div>
+    
+     
+    <footer id="contact">
+        <h4>📧 SahanaCreamHouse@gmail.com  | 📞 905 493 7651   | 📱647 994 8649</h4>
+    </footer>
+</body>
+</html>
