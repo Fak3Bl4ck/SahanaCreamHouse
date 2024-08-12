@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SahanaCreamHouse HomePage</title>
+    <link rel="stylesheet" href="StyleCss.css">
+    <script src="ScriptJS.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <nav>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <h2 class="logo">SahanaCreamHouse</h2>
+            <ul id="nav-menu">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Order.html">Order</a></li>
+                <li><a href="Event.html">Events</a></li>
+                <li><a href="About-Us.html">About us</a></li>
+            </ul>
+            <div class="book-btn-container">
+                <a href="Event.html" class="book-btn">BOOK NOW</a>
+            </div>
+        </nav>
+    </div>
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">GET A QUOTE</h1>
+        <p class="required-note">* Indicates required question</p>
+        <form id="quoteForm" action="https://formspree.io/f/meojgpvz" method="POST">
+            <div class="form-group no-border">
+                <label for="name">Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group no-border">
+                <label for="phone">Phone # <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group email-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="event_type">What type of event are you looking to have catered?</label>
+                <textarea id="event_type" name="What type of event are you looking to have catered?" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="guests">How many guests are you expecting to have?</label>
+                <textarea id="guests" name="How many guests are you expecting to have?" rows="3"></textarea>
+            </div>
+            <fieldset class="form-group no-border-fieldset">
+                <legend>Do you have a specific date in mind?</legend>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="Do you have a specific date in mind?" value="yes">Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="Do you have a specific date in mind?" value="no">No
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="address">What is the address and city of your event?</label>
+                <textarea id="address" name="What is the address and city of your event?" rows="3"></textarea>
+            </div>
+            <fieldset class="form-group no-border-fieldset">
+                <legend>Is the venue confirmed?</legend>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="Is the venue confirmed?" value="yes">Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="Is the venue confirmed?" value="no">No
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="details">If you have any additional details, please specify below:</label>
+                <textarea id="details" name="If you have any additional details, please specify below" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="budget">If you have a budget in mind please specify below (CAD)</label>
+                <input type="number" id="budget" name="If you have a budget in mind please specify below" placeholder="CAD" min="0" required>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="_subject" value="New quote request">
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+        <div class="contact-info">
+            <h4>For better assistance, please call or email us at:</h4>
+            <h4>📧 SahanaCreamHouse@gmail.com  |   📞 905 493 7651   |  📱 647 994 8649</h4>
+        </div>
+    </div>
+    <footer id="contact">
+        <h4>📧 SahanaCreamHouse@gmail.com  | 📞 905 493 7651   | 📱647 994 8649</h4>
+    </footer>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

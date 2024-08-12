@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SahanaCreamHouse HomePage</title>
+    <link rel="stylesheet" href="StyleCss.css">
+    <script src="ScriptJS.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <nav>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <h2 class="logo">SahanaCreamHouse</h2>
+            <ul id="nav-menu">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Order.html">Order</a></li>
+                <li><a href="Event.html">Events</a></li>
+                <li><a href="About-Us.html">About us</a></li>
+            </ul>
+            <div class="book-btn-container">
+                <a href="Event.html" class="book-btn">BOOK NOW</a>
+            </div>
+        </nav>
+    </div>
+    <div class="abtuspicturecontainer">
+        <h2>About Us</h2>
+        <p>Something i don't know what to put but thank you for reading this</p>
+
+    </div>
+    <footer id="contact">
+        <h4>📧 SahanaCreamHouse@gmail.com  | 📞 905 493 7651   | 📱647 994 8649</h4>
+    </footer>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
